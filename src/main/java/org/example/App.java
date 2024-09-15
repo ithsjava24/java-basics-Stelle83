@@ -72,7 +72,7 @@ public class App {
 //        UUS ARRAY????
 
         String[] fourHours = {"00-04", "01-05", "02-06",  "03-07","04-08", "05-09", "06-01", "07-11", "0812", "09-13", "10-14", "11-15", "12-6", "13-17", "14-17", "15-19", "16-20", "17-21", "18-22", "19-23", "20-00"};
-        int[] bestTimes = new int [3];
+        int[] bestTimes = new int [fourHours.length];
 
 
         for (int i = 0; i < fourHours.length; i++) {
