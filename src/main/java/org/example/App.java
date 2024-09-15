@@ -66,6 +66,34 @@ public class App {
         System.out.println(" öre/kWh");
 
 
+// 4 tunni keskmine!!!
+// liidu kokku 4 numbrit -- for loop, mida tegime paaride puhul
+/// otsi miinimum nendest
+//        UUS ARRAY????
+
+        String[] fourHours = {"00-04", "01-05", "02-06",  "03-07","04-08", "05-09", "06-01", "07-11", "0812", "09-13", "10-14", "11-15", "12-6", "13-17", "14-17", "15-19", "16-20", "17-21", "18-22", "19-23", "20-00"};
+        int[] bestTimes = new int [3];
+
+
+        for (int i = 0; i < fourHours.length; i++) {
+            bestTimes[i] = (perHour[i] + perHour[i + 1] + perHour[i + 2] + perHour[i + 3]);
+        }
+        System.out.print("\ntulemused: " + Arrays.toString(bestTimes));
+
+
+        int bestTiming = bestTimes[0];
+        String bestHours = fourHours[0];
+
+
+        for (int i = 1; i < fourHours.length; i++) {
+            if (bestTimes[i] < bestTiming) {
+                bestTiming = bestTimes[i];
+                bestHours = fourHours[i];
+            }
+        }
+        double averageFour = (double) bestTiming / 4;
+        System.out.print("\nMinimum price total: " + bestTiming + " and it was between " + bestHours + " and average price those hours ");
+        System.out.printf(Locale.of("SE"), "%.2f", averageFour);
 
     }
 }
