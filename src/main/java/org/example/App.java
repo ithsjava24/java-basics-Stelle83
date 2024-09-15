@@ -62,7 +62,7 @@ public class App {
         double average = sum / (perHour.length);
 
         System.out.print("        Medelpris: ");
-        System.out.printf(Locale.of("SE"), "%.2f", average);
+        System.out.printf(Locale.of("sv", "SE"), "%.2f", average);
         System.out.println(" öre/kWh");
 
 
@@ -78,7 +78,7 @@ public class App {
         for (int i = 0; i < fourHours.length; i++) {
             bestTimes[i] = (perHour[i] + perHour[i + 1] + perHour[i + 2] + perHour[i + 3]);
         }
-        System.out.print("\ntulemused: " + Arrays.toString(bestTimes));
+//        System.out.print("\ntulemused: " + Arrays.toString(bestTimes));
 
 
         int bestTiming = bestTimes[0];
@@ -92,8 +92,10 @@ public class App {
             }
         }
         double averageFour = (double) bestTiming / 4;
-        System.out.print("\nMinimum price total: " + bestTiming + " and it was between " + bestHours + " and average price those hours ");
-        System.out.printf(Locale.of("SE"), "%.2f", averageFour);
+        System.out.print("\n        Påbörja laddning klockan " + bestHours);
+        System.out.print("\n        Medelpris 4h: ");
+        System.out.printf(Locale.of("sv", "SE"), "%.2f", averageFour);
+        System.out.println(" öre/kWh");
 
     }
 }
