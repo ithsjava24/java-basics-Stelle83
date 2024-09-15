@@ -33,7 +33,7 @@ public class App {
         int[] perHour = new int[times.length];
 
         for (int i = 0; i < times.length; i++) {
-            System.out.print("write a price during the time " + times[i] + ": ");
+            System.out.print("Pris för timmen " + times[i] + ": ");
             perHour[i] = scanner.nextInt();
         }
 
@@ -106,7 +106,7 @@ public class App {
         System.out.print("\n        Medelpris 4h: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", averageFour);
         System.out.println(" öre/kWh");
-        System.out.printf("Medelpris 4h: %.2f öre" + averageFour) ;
+//        System.out.printf("Medelpris 4h: %.2f öre" + averageFour) ;
 
     }
 }
