@@ -36,16 +36,16 @@ public class App {
                     ;
                     break;
                 case "3":
-                    System.out.println("siis tuleb sortimine");;
+                    System.out.print("siis tuleb sortimine\n");
                     break;
                 case "4":
                     best4hours();;
                     break;
                 case "e":
-                    System.out.println("closing program!");
+                    System.out.print("closing program!\n");
                     break;
                 default:
-                    System.out.println("invalid choice");
+                    System.out.print("invalid choice\n");
             }
         } while (menuChoice != "e");
 
@@ -68,7 +68,6 @@ public class App {
 //    }
 
     public static void printMenu() {
-//        Scanner scanner = new Scanner(System.in);
         String t = """
                 Elpriser
                 ========
@@ -79,7 +78,7 @@ public class App {
                 e. Avsluta
                 """;
 
-        System.out.println(t);
+        System.out.print(t);
     }
 
     //        1. INMATNING ELPRISERNA
@@ -115,8 +114,8 @@ public class App {
             }
         }
 
-        System.out.println("        Lägsta pris: " + min_index + ", " + min_price + " öre/kWh");
-        System.out.println("        Högsta pris: " + max_index + ", " + max_price + " öre/kWh");
+        System.out.print("        Lägsta pris: " + min_index + ", " + min_price + " öre/kWh");
+        System.out.printf("\n        Högsta pris: " + max_index + ", " + max_price + " öre/kWh");
 
         // calculate sum
         double sum = 0;
@@ -128,9 +127,9 @@ public class App {
         //Calculate avarage, change to SE format
         double average = sum / (perHour.length);
 
-        System.out.print("        Medelpris: ");
+        System.out.print("\n        Medelpris: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", average);
-        System.out.println(" öre/kWh");
+        System.out.print(" öre/kWh\n");
     }
 
 
@@ -144,8 +143,6 @@ public class App {
         for (int i = 0; i < fourHours.length; i++) {
             bestTimes[i] = (perHour[i] + perHour[i + 1] + perHour[i + 2] + perHour[i + 3]);
         }
-//        System.out.print("\ntulemused: " + Arrays.toString(bestTimes));
-
 
         int bestTiming = bestTimes[0];
         String bestHours = fourHours[0];
@@ -158,10 +155,10 @@ public class App {
             }
         }
         double averageFour = (double) bestTiming / 4;
-        System.out.print("\n        Påbörja laddning klockan " + bestHours);
+        System.out.print("        Påbörja laddning klockan " + bestHours);
         System.out.print("\n        Medelpris 4h: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", averageFour);
-        System.out.println(" öre/kWh");
+        System.out.print(" öre/kWh\n");
 //        System.out.printf("Medelpris 4h: %.2f öre" + averageFour) ;
     }
 }
