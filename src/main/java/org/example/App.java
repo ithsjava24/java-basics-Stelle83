@@ -36,7 +36,7 @@ public class App {
                     ;
                     break;
                 case "3":
-                    inputPrices();
+                    System.out.println("siis tuleb sortimine");;
                     break;
                 case "4":
                     best4hours();;
@@ -86,7 +86,7 @@ public class App {
     public static void inputPrices() {
         Scanner scanner = new Scanner(System.in);
         String[] times = {"00-01", "01-02", "02-03", "03-04", "04-05", "05-06", "06-07", "07-08", "08-09", "09-10", "10-11", "11-12", "12-13", "13-14", "14-15", "15-16", "16-17", "17-18", "18-19", "19-20", "20-21", "21-22", "22-23", "23-00"};
-        int[] perHour = new int[times.length];
+//        int[] perHour = new int[times.length];
 
         for (int i = 0; i < times.length; i++) {
             System.out.print("Pris för timmen " + times[i] + ": ");
