@@ -115,8 +115,8 @@ public class App {
             }
         }
 
-        System.out.print("        Lägsta pris: " + min_index + ", " + min_price + " öre/kWh");
-        System.out.printf("\n        Högsta pris: " + max_index + ", " + max_price + " öre/kWh");
+        System.out.print("Lägsta pris: " + min_index + ", " + min_price + " öre/kWh");
+        System.out.printf("\nHögsta pris: " + max_index + ", " + max_price + " öre/kWh");
 
         // calculate sum
         double sum = 0;
@@ -128,7 +128,7 @@ public class App {
         //Calculate avarage, change to SE format
         double average = sum / (perHour.length);
 
-        System.out.print("\n        Medelpris: ");
+        System.out.print("\nMedelpris: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", average);
         System.out.print(" öre/kWh\n");
     }
@@ -156,7 +156,7 @@ public class App {
             }
         }
         double averageFour = (double) bestTiming / 4;
-        System.out.print("        Påbörja laddning klockan " + bestHours);
-        System.out.printf("Medelpris 4h: %.2f öre/kWh\n", averageFour) ;
+        System.out.print("Påbörja laddning klockan " + bestHours.substring(0,2) + "\n");
+        System.out.printf("Medelpris 4h: %.1f öre/kWh\n", averageFour) ;
     }
 }
