@@ -49,6 +49,7 @@ public class App {
             }
         } while (menuChoice != "e");
 
+
         scanner.close();
     }
 
@@ -156,9 +157,6 @@ public class App {
         }
         double averageFour = (double) bestTiming / 4;
         System.out.print("        Påbörja laddning klockan " + bestHours);
-        System.out.print("\n        Medelpris 4h: ");
-        System.out.printf(Locale.of("sv", "SE"), "%.2f", averageFour);
-        System.out.print(" öre/kWh\n");
-//        System.out.printf("Medelpris 4h: %.2f öre" + averageFour) ;
+        System.out.printf("Medelpris 4h: %.2f öre/kWh\n", averageFour) ;
     }
 }
