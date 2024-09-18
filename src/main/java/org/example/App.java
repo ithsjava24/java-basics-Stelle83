@@ -43,7 +43,7 @@ public class App {
                     break;
                 case "e":
                     System.out.print("closing program!\n");
-                    break;
+                    return;
                 default:
                     System.out.print("invalid choice\n");
             }
@@ -92,6 +92,7 @@ public class App {
             System.out.print("Pris för timmen " + times[i] + ": ");
             perHour[i] = scanner.nextInt();
         }
+        System.out.printf("\n");
     }
 
 
@@ -131,6 +132,7 @@ public class App {
         System.out.print("\nMedelpris: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", average);
         System.out.print(" öre/kWh\n");
+        System.out.printf("\n");
     }
 
 
