@@ -35,7 +35,7 @@ public class App {
                     calcMinMaxAverage();
                     break;
                 case "3":
-//                    sorted();
+                    sorted();
                     break;
                 case "4":
                     best4hours();;
@@ -51,7 +51,7 @@ public class App {
         scanner.close();
     }
 
-    public static void printMenu(Scanner scanner) {
+    private static void printMenu(Scanner scanner) {
         String t = """
                 Elpriser
                 ========
@@ -69,11 +69,11 @@ public class App {
     private static void inputPrices(Scanner scanner) {
 //        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < times.length; i++) {
+        for (int i = 0; i < HOURS; i++) {
             System.out.print("Pris för timmen " + times[i] + ": ");
-            perHour[i] = scanner.nextInt();
+            perHour[i] = Integer.parseInt(scanner.nextLine());
         }
-        System.out.printf("\n");
+//        System.out.printf("\n");
     }
 
 
@@ -113,7 +113,7 @@ public class App {
         System.out.print("\nMedelpris: ");
         System.out.printf(Locale.of("sv", "SE"), "%.2f", average);
         System.out.print(" öre/kWh\n");
-        System.out.printf("\n");
+//        System.out.printf("\n");
     }
 
 //SORTED
