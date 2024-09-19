@@ -24,16 +24,28 @@ public class App {
 
         do {
 //            --> SKRIV UT MENU <--
-            printMenu();
+            String menu = """
+            Elpriser
+            ========
+            1. Inmatning
+            2. Min, Max och Medel
+            3. Sortera
+            4. Bästa Laddningstid (4h)
+            5. Visualisering
+            e. Avsluta
+            """;
+
+            System.out.print(menu);
+
+//            printMenu();
             menuChoice = scanner.nextLine().trim().toLowerCase();
 
             switch (menuChoice) {
                 case "1":
-                    inputPrices();
+                    inputPrices(scanner);
                     break;
                 case "2":
                     calcMinMaxAverage();
-                    ;
                     break;
                 case "3":
                     System.out.print("siis tuleb sortimine\n");
@@ -49,27 +61,26 @@ public class App {
             }
         } while (menuChoice != "e");
 
-
         scanner.close();
     }
 
-    public static void printMenu() {
-        String t = """
-                Elpriser
-                ========
-                1. Inmatning
-                2. Min, Max och Medel
-                3. Sortera
-                4. Bästa Laddningstid (4h)
-                e. Avsluta
-                """;
-
-        System.out.print(t);
-    }
+//    public static void printMenu() {
+//        String t = """
+//                Elpriser
+//                ========
+//                1. Inmatning
+//                2. Min, Max och Medel
+//                3. Sortera
+//                4. Bästa Laddningstid (4h)
+//                e. Avsluta
+//                """;
+//
+//        System.out.print(t);
+//    }
 
     //        1. INMATNING ELPRISERNA
-    public static void inputPrices() {
-        Scanner scanner = new Scanner(System.in);
+    private static void inputPrices(Scanner scanner) {
+//        Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < times.length; i++) {
             System.out.print("Pris för timmen " + times[i] + ": ");
@@ -80,7 +91,7 @@ public class App {
 
 
     //        2. MIN MAX MEDEL PRIS
-    public static void calcMinMaxAverage() {
+    private static void calcMinMaxAverage() {
 
         int max_price = perHour[0];
         int min_price = perHour[0];
@@ -120,7 +131,7 @@ public class App {
 
 
 // 4. 4 tunni keskmine!!! liidu kokku 4 numbrit -- for loop, mida tegime paaride puhul
-    public static void best4hours() {
+    private static void best4hours() {
 
         String[] fourHours = {"00-04", "01-05", "02-06", "03-07",
                             "04-08", "05-09", "06-10", "07-11",
