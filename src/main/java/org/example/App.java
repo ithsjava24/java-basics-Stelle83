@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -23,21 +24,7 @@ public class App {
 
 
         do {
-//            --> SKRIV UT MENU <--
-            String menu = """
-            Elpriser
-            ========
-            1. Inmatning
-            2. Min, Max och Medel
-            3. Sortera
-            4. Bästa Laddningstid (4h)
-            5. Visualisering
-            e. Avsluta
-            """;
-
-            System.out.print(menu);
-
-//            printMenu();
+            printMenu(scanner);
             menuChoice = scanner.nextLine().trim().toLowerCase();
 
             switch (menuChoice) {
@@ -48,7 +35,7 @@ public class App {
                     calcMinMaxAverage();
                     break;
                 case "3":
-                    System.out.print("siis tuleb sortimine\n");
+//                    sorted();
                     break;
                 case "4":
                     best4hours();;
@@ -64,19 +51,19 @@ public class App {
         scanner.close();
     }
 
-//    public static void printMenu() {
-//        String t = """
-//                Elpriser
-//                ========
-//                1. Inmatning
-//                2. Min, Max och Medel
-//                3. Sortera
-//                4. Bästa Laddningstid (4h)
-//                e. Avsluta
-//                """;
-//
-//        System.out.print(t);
-//    }
+    public static void printMenu(Scanner scanner) {
+        String t = """
+                Elpriser
+                ========
+                1. Inmatning
+                2. Min, Max och Medel
+                3. Sortera
+                4. Bästa Laddningstid (4h)
+                e. Avsluta
+                """;
+
+        System.out.print(t);
+    }
 
     //        1. INMATNING ELPRISERNA
     private static void inputPrices(Scanner scanner) {
@@ -129,6 +116,34 @@ public class App {
         System.out.printf("\n");
     }
 
+//SORTED
+private static void sorted() {
+
+        String[][] priceHourPair = new String[HOURS][2];
+
+        for (int i = 0; i < HOURS; i++) {
+            priceHourPair[i][0] = String.valueOf(perHour[i]);
+            priceHourPair[i][1] = times[i];
+        }
+
+Arrays.sort(priceHourPair, new Comparator<String[]>() {
+    @Override
+    public int compare(String[] o1, String[] o2) {
+        return Integer.compare(Integer.parseInt(o2[0]), Integer.parseInt(o1[0]));
+    }
+});
+
+        for (int i = 0; i < HOURS; i++) {
+            perHour[i] = Integer.parseInt(priceHourPair[i][0]);
+            times[i] = priceHourPair[i][1];
+        }
+
+        for (int i = 0; i < HOURS; i++) {
+            System.out.printf(times[i] + " " + perHour[i] + " öre\n");
+        }
+
+
+}
 
 // 4. 4 tunni keskmine!!! liidu kokku 4 numbrit -- for loop, mida tegime paaride puhul
     private static void best4hours() {
