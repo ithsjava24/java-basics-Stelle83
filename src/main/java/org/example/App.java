@@ -38,7 +38,7 @@ public class App {
                     sorted();
                     break;
                 case "4":
-                    best4hours();;
+                    best4hours();
                     break;
                 case "e":
                     System.out.print("closing program!\n");
