@@ -35,7 +35,7 @@ public class App {
                     calcMinMaxAverage();
                     break;
                 case "3":
-                    sorted();
+//                    sorted();
                     break;
                 case "4":
                     best4hours();;
