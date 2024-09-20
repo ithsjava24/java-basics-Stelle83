@@ -35,7 +35,7 @@ public class App {
                     calcMinMaxAverage();
                     break;
                 case "3":
-//                    sorted();
+                    sorted();
                     break;
                 case "4":
                     best4hours();;
@@ -119,28 +119,31 @@ public class App {
 //SORTED
 private static void sorted() {
 
-        String[][] priceHourPair = new String[HOURS][2];
+    int[] sorted = Arrays.copyOf(perHour, HOURS);
+    String[] sortTime = Arrays.copyOf(times, HOURS);
 
-        for (int i = 0; i < HOURS; i++) {
-            priceHourPair[i][0] = String.valueOf(perHour[i]);
-            priceHourPair[i][1] = times[i];
-        }
+    String[][] priceHourPair = new String[HOURS][2];
 
-Arrays.sort(priceHourPair, new Comparator<String[]>() {
-    @Override
-    public int compare(String[] o1, String[] o2) {
-        return Integer.compare(Integer.parseInt(o2[0]), Integer.parseInt(o1[0]));
+    for (int i = 0; i < HOURS; i++) {
+        priceHourPair[i][0] = String.valueOf(sorted[i]);
+        priceHourPair[i][1] = sortTime[i];
     }
-});
 
-        for (int i = 0; i < HOURS; i++) {
-            perHour[i] = Integer.parseInt(priceHourPair[i][0]);
-            times[i] = priceHourPair[i][1];
+    Arrays.sort(priceHourPair, new Comparator<String[]>() {
+        @Override
+        public int compare(String[] o1, String[] o2) {
+            return Integer.compare(Integer.parseInt(o2[0]), Integer.parseInt(o1[0]));
         }
+    });
 
-        for (int i = 0; i < HOURS; i++) {
-            System.out.printf(times[i] + " " + perHour[i] + " öre\n");
-        }
+    for (int i = 0; i < HOURS; i++) {
+        sorted[i] = Integer.parseInt(priceHourPair[i][0]);
+        sortTime[i] = priceHourPair[i][1];
+    }
+
+    for (int i = 0; i < HOURS; i++) {
+        System.out.printf(sortTime[i] + " " + sorted[i] + " öre\n");
+    }
 
 
 }
