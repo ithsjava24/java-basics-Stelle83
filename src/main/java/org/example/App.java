@@ -200,7 +200,7 @@ private static void sorted() {
 
         final int rows = 6;
         double step = ((max_price - min_price) / (rows - 1)*100.0)/100.0;
-
+//        double step = (max_price - min_price) / (rows - 1);
 
         for (int row = 1; row <= rows; row++) {
 
@@ -218,10 +218,10 @@ private static void sorted() {
             String[] placement = new String[HOURS];
 
             for (int i = 0; i < HOURS; i++) {
-//                double priceLevel = max_price - step;
+                double priceLevel = max_price - step;
 
 //                if (perHour[i] > priceLevel) {
-                if (perHour[i] >= max_price) {
+                if (perHour[i] >= max_price) {  //sellega töötab esimene
                     placement[i] = "  x";
                 } else {
                     placement[i] = "   ";
