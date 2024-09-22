@@ -204,7 +204,7 @@ private static void sorted() {
 
         for (int row = 1; row <= rows; row++) {
 
-            double priceLevel = max_price - step;
+//            double priceLevel = max_price - step;
 
             if (row == 1) {
                 System.out.printf("%3.0f|", max_price);
@@ -218,9 +218,10 @@ private static void sorted() {
             String[] placement = new String[HOURS];
 
             for (int i = 0; i < HOURS; i++) {
+//                double priceLevel = max_price - step;
 
-
-                if (perHour[i] > priceLevel) {
+//                if (perHour[i] > priceLevel) {
+                if (perHour[i] >= max_price) {
                     placement[i] = "  x";
                 } else {
                     placement[i] = "   ";
