@@ -19,6 +19,7 @@ public class App {
 
     public static void main(String[] args) {
 
+        Locale.setDefault(new Locale("sv", "SE"));
         Scanner scanner = new Scanner(System.in);
         String menuChoice;
 
@@ -40,6 +41,9 @@ public class App {
                 case "4":
                     best4hours();
                     break;
+                case "5":
+                    visualisation();
+                    break;
                 case "e":
                     System.out.print("closing program!\n");
                     return;
@@ -59,6 +63,7 @@ public class App {
                 2. Min, Max och Medel
                 3. Sortera
                 4. Bästa Laddningstid (4h)
+                5. Visualisering
                 e. Avsluta
                 """;
 
@@ -177,4 +182,61 @@ private static void sorted() {
         System.out.print("Påbörja laddning klockan " + bestHours.substring(0,2) + "\n");
         System.out.printf("Medelpris 4h: %.1f öre/kWh\n", averageFour) ;
     }
-}
+
+//    VISUALISATION
+
+    private static void visualisation() {
+        double max_price = perHour[0];
+        double min_price = perHour[0];
+
+        for (int i = 1; i < perHour.length; i++) {
+            if (perHour[i] > max_price) {
+                max_price = perHour[i];
+            }
+            if (perHour[i] < min_price) {
+                min_price = perHour[i];
+            }
+        }
+
+        final int rows = 6;
+        double step = ((max_price - min_price) / (rows - 1)*100.0)/100.0;
+
+
+        for (int row = 1; row <= rows; row++) {
+
+            double priceLevel = max_price - step;
+
+            if (row == 1) {
+                System.out.printf("%3.0f|", max_price);
+            } else if (row == 6) {
+                System.out.printf("%3.0f|", min_price);
+            } else {
+                System.out.print("   |");
+            }
+
+
+            String[] placement = new String[HOURS];
+
+            for (int i = 0; i < HOURS; i++) {
+
+
+                if (perHour[i] >= priceLevel) {
+                    placement[i] = "  x";
+                } else {
+                    placement[i] = "   ";
+                }
+            }
+                for (String place : placement) {
+
+                    System.out.print(place);
+                }
+                System.out.print("\n");
+            max_price -=step;
+            }
+        System.out.print("   |------------------------------------------------------------------------\n");
+        System.out.print("   | 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23\n");
+
+        }
+    }
+
+
