@@ -220,18 +220,19 @@ private static void sorted() {
             for (int i = 0; i < HOURS; i++) {
 
 
-                if (perHour[i] >= priceLevel) {
+                if (perHour[i] > priceLevel) {
                     placement[i] = "  x";
                 } else {
                     placement[i] = "   ";
                 }
             }
+            max_price -=step;
                 for (String place : placement) {
 
                     System.out.print(place);
                 }
                 System.out.print("\n");
-            max_price -=step;
+//            max_price -=step;
             }
         System.out.print("   |------------------------------------------------------------------------\n");
         System.out.print("   | 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23\n");
